@@ -1,126 +1,105 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-<meta charset="UTF-8">
-<title>Хэрэглэгчийн бүртгэлийн анкет - Лаб 3</title>
-<!-- Лаб 3-ын CSS файлаа энд холбож байна -->
-<link rel="stylesheet" href="lab3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаборатори 03 - CSS Загварчлал</title>
+    <!-- Google Fonts холбох -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- External CSS холбох -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>Хэрэглэгчийн бүртгэл</h1>
-</header>
+    <header class="site-header">
+        <h1 class="main-title">Хэрэглэгчийн бүртгэл</h1>
+        <p class="subtitle">Лаборатори 03: CSS3 загварчлал</p>
+    </header>
 
-<nav>
-  <a href="#burtgel">Бүртгэл</a>
-  <a href="#sonirkhol">Сонирхол</a>
-  <a href="#dun">Дүн</a>
-</nav>
+    <main class="site-main">
+        <div class="form-container">
+            <!-- Position relative/absolute ашигласан Badge жишээ -->
+            <div class="form-badge">Шинэ</div>
+            
+            <h2 class="form-title">Бүртгэлийн анкет</h2>
+            
+            <form action="#" method="POST">
+                
+                <div class="form-group">
+                    <label for="fullname" class="form-label">Овог, нэр:</label>
+                    <input type="text" id="fullname" name="fullname" class="form-input" required pattern="[A-Za-zА-Яа-яЁё\s]+" title="Зөвхөн үсэг оруулна уу">
+                </div>
 
-<main>
-  <!-- Position шаардлага хангах зорилготой badge -->
-  <div class="lab-badge">Лаборатори 3</div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Имэйл хаяг:</label>
+                    <input type="email" id="email" name="email" class="form-input" required placeholder="example@mail.com">
+                </div>
 
-  <section id="burtgel">
-    <h2>Бүртгэлийн анкет</h2>
+                <div class="form-group">
+                    <label for="password" class="form-label">Нууц үг:</label>
+                    <input type="password" id="password" name="password" class="form-input" required minlength="6">
+                </div>
 
-    <article>
-      <form>
+                <div class="form-group">
+                    <label for="birthdate" class="form-label">Төрсөн огноо:</label>
+                    <input type="date" id="birthdate" name="birthdate" class="form-input" required>
+                </div>
 
-        <label for="fullname">Овог, нэр:</label>
-        <input type="text" id="fullname" name="fullname" required minlength="3">
+                <div class="form-group">
+                    <label for="profilepic" class="form-label">Профайл зураг:</label>
+                    <input type="file" id="profilepic" name="profilepic" class="form-input">
+                </div>
 
-        <label for="email">И-мэйл хаяг:</label>
-        <input type="email" id="email" name="email" required>
+                <div class="form-group">
+                    <label for="city" class="form-label">Аймаг / Хот:</label>
+                    <select id="city" name="city" class="form-select" required>
+                        <option value="">-- Сонгоно уу --</option>
+                        <option value="ub">Улаанбаатар</option>
+                        <option value="darhan">Дархан-Уул</option>
+                        <option value="erdenet">Орхон</option>
+                    </select>
+                </div>
 
-        <label for="password">Нууц үг:</label>
-        <input type="password" id="password" name="password" required minlength="8"
-               pattern="(?=.*[A-Za-z])(?=.*\d).{8,}"
-               title="Дор хаяж 8 тэмдэгт, үсэг болон тоо хосолсон байна">
+                <div class="form-group">
+                    <label class="form-label">Хүйс:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="female" name="gender" value="female" required>
+                        <label for="female">Эмэгтэй</label>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Эрэгтэй</label>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Бусад</label>
+                    </div>
+                </div>
 
-        <label for="birthdate">Төрсөн огноо:</label>
-        <input type="date" id="birthdate" name="birthdate" required>
+                <div class="form-group">
+                    <label class="form-label">Мэдэгдэл хүлээн авах сувгууд:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="notif-email" name="notifications" value="email">
+                        <label for="notif-email">И-мэйл</label>
+                        <input type="checkbox" id="notif-sms" name="notifications" value="sms">
+                        <label for="notif-sms">SMS</label>
+                        <input type="checkbox" id="notif-app" name="notifications" value="app">
+                        <label for="notif-app">Апп мэдэгдэл</label>
+                    </div>
+                </div>
 
-        <label for="avatar">Профайл зураг:</label>
-        <input type="file" id="avatar" name="avatar" accept="image/*">
+                <div class="form-group">
+                    <label for="bio" class="form-label">Өөрийн тухай товч танилцуулга:</label>
+                    <textarea id="bio" name="bio" class="form-input" rows="3"></textarea>
+                </div>
 
-        <label for="city">Аймаг / Хот:</label>
-        <select id="city" name="city" required>
-          <option value="" disabled selected>-- Сонгоно уу --</option>
-          <option value="ulaanbaatar">Улаанбаатар</option>
-          <option value="darkhan">Дархан</option>
-          <option value="erdenet">Эрдэнэт</option>
-          <option value="other">Бусад</option>
-        </select>
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Бүртгүүлэх</button>
+                </div>
 
-        <fieldset>
-          <legend>Хүйс:</legend>
-          <label><input type="radio" name="gender" value="female" required> Эмэгтэй</label>
-          <label><input type="radio" name="gender" value="male"> Эрэгтэй</label>
-          <label><input type="radio" name="gender" value="other"> Бусад</label>
-        </fieldset>
+            </form>
+        </div>
+    </main>
 
-        <fieldset>
-          <legend>Мэдэгдэл хүлээн авах сувгууд:</legend>
-          <label><input type="checkbox" name="channel" value="email"> И-мэйл</label>
-          <label><input type="checkbox" name="channel" value="sms"> SMS</label>
-          <label><input type="checkbox" name="channel" value="app"> Апп мэдэгдэл</label>
-        </fieldset>
-
-        <label for="about">Өөрийн тухай товч танилцуулга:</label>
-        <textarea id="about" name="about" rows="4" maxlength="300"></textarea>
-
-        <button type="submit">Бүртгүүлэх</button>
-
-      </form>
-    </article>
-  </section>
-
-  <section id="sonirkhol">
-    <h2>Миний сонирхол</h2>
-    <ul>
-      <li>Ууланд гарах</li>
-      <li>Шатар тоглох</li>
-      <li>Спортоор хичээллэх</li>
-    </ul>
-  </section>
-
-  <section id="dun">
-    <h2>Миний дүн</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Хичээлийн нэр</th>
-          <th>Дүн (%)</th>
-          <th>Үсгэн үнэлгээ</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Веб программчлал</td>
-          <td>92</td>
-          <td>A</td>
-        </tr>
-        <tr>
-          <td>Өгөгдлийн сан</td>
-          <td>93</td>
-          <td>A</td>
-        </tr>
-        <tr>
-          <td>Алгоритм ба бүтэц</td>
-          <td>98</td>
-          <td>A</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-</main>
-
-<footer>
-  <p>&copy; 2026 &mdash; Лаб 3: CSS загварчлал</p>
-</footer>
+    <footer class="site-footer">
+        <p>&copy; 2026 Бүх эрх хуулиар хамгаалагдсан.</p>
+    </footer>
 
 </body>
 </html>
